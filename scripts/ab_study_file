@@ -1,0 +1,3 @@
+scp tguo2@bastion.crc.nd.edu:/scratch365/tguo2/MoA/results/{final_result.txt,baseline_result.txt} ./
+scp tguo2@bastion.crc.nd.edu:/scratch365/tguo2/MoA/data/USPTO480k_rare/src-test.txt  ./
+scp tguo2@bastion.crc.nd.edu:/scratch365/tguo2/MoA/results/*.txt  results/
