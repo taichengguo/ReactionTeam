@@ -1,7 +1,22 @@
 # ReactionTeam
 ReactionTeam: Teaming Experts for Divergent Thinking Beyond Typical Reaction Patterns 
 
-## 1. Environmental setup
+## 📑 Table of Contents
+
+- [1. Environmental setup](#-1-environmental-setup)
+  - [System requirements](#system-requirements)
+  - [Using conda](#using-conda)
+- [2. Data preparation](#-2-data-preparation)
+- [3. Model training and validation](#-3-model-training-and-validation)
+  - [3.1 Base Model Training](#31-base-model-training)
+  - [3.2 LoRA Experts Training](#32-lora-experts-training)
+- [4. Testing](#-4-testing)
+  - [4.1 Base Model Testing](#41-base-model-testing)
+  - [4.2 Teacher Forcing Based Ranking with Multiple Experts](#42-teacher-forcing-based-ranking-with-multiple-experts)
+- [5. Acknowledgements](#-5-acknowledgements)
+- [6. Contact](#-6-contact)
+
+## 🔧 1. Environmental setup
 ### System requirements
 **Ubuntu**: >= 16.04 <br>
 **conda**: >= 4.0 <br>
@@ -18,7 +33,7 @@ bash -i scripts/setup.sh
 conda activate graph2smiles
 ```
 
-## 2. Data preparation
+## 📊 2. Data preparation
 Download the raw (cleaned and tokenized) data from Google Drive by
 ```
 python scripts/download_raw_data.py --data_name=USPTO_50k
@@ -38,7 +53,7 @@ Then run the preprocessing script by
 sh scripts/preprocess.sh
 ```
 
-## 3. Model training and validation
+## 🚀 3. Model training and validation
 
 ### 3.1 Base Model Training
 Modify the following environmental variables in **scripts/train_g2s.sh**:
@@ -106,7 +121,7 @@ python scripts/download_checkpoints.py --data_name=$DATASET --mpn_type=$MPN_TYPE
 ```
 using any combinations of DATASET and MPN_TYPE.
 
-## 4. Testing
+## 🧪 4. Testing
 
 ### 4.1 Base Model Testing
 Modify the following environmental variables in **scripts/predict.sh**:
@@ -164,3 +179,22 @@ The script will:
 - Score each candidate using teacher forcing
 - Rank and deduplicate predictions
 - Compute top-N accuracies and save results to `results_summary{topn}_final.txt`
+
+## 🙏 5. Acknowledgements
+
+This work is built upon the [Graph2SMILES](https://github.com/coleygroup/Graph2SMILES) project. We gratefully acknowledge the original authors for their excellent work on graph-to-sequence models for retrosynthesis and reaction outcome prediction.
+
+Graph2SMILES provides the foundation for:
+- Graph-to-sequence model architecture
+- Data preprocessing pipelines
+- Base model training infrastructure
+- Evaluation frameworks
+
+We extend their work by adding:
+- LoRA (Low-Rank Adaptation) experts training for divergent thinking
+- Teacher forcing-based ranking system for multi-expert ensemble predictions
+- Boosting mechanism for focusing on challenging samples
+
+## 📧 6. Contact
+
+For questions, issues, or collaborations, please contact tguo2@nd.edu, thanks
